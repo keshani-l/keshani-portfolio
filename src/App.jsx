@@ -185,6 +185,11 @@ function ProjectImageSequence({ images, alt }) {
 
   const totalImages = images.length
 
+  const preloadNextImage = () => {
+    const nextImage = new Image()
+    nextImage.src = images[(imageIndex + 1) % totalImages]
+  }
+
   const showNextImage = () => {
     setImageIndex(
       (currentIndex) =>
@@ -213,7 +218,10 @@ function ProjectImageSequence({ images, alt }) {
           key={images[imageIndex]}
           src={images[imageIndex]}
           alt={`${alt} image ${imageIndex + 1}`}
+          loading="lazy"
+          decoding="async"
           draggable="false"
+          onLoad={preloadNextImage}
         />
 
       </span>
@@ -234,6 +242,11 @@ function ProjectImageSequence({ images, alt }) {
 function CertificateSequence({ items }) {
   const [certificateIndex, setCertificateIndex] = useState(0)
   const certificate = items[certificateIndex]
+
+  const preloadNextCertificate = () => {
+    const nextImage = new Image()
+    nextImage.src = items[(certificateIndex + 1) % items.length].image
+  }
 
   const showNextCertificate = () => {
     setCertificateIndex(
@@ -271,7 +284,10 @@ function CertificateSequence({ items }) {
               key={certificate.image}
               src={certificate.image}
               alt={`${certificate.title} certificate`}
+              loading="lazy"
+              decoding="async"
               draggable="false"
+              onLoad={preloadNextCertificate}
             />
 
           </span>
@@ -549,6 +565,8 @@ function App() {
               <img
                 src={me}
                 alt="Keshani Logathasan"
+                loading="lazy"
+                decoding="async"
                 draggable="false"
               />
 
