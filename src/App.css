@@ -255,6 +255,17 @@ button {
   color: #fffaf6;
   z-index: 1;
   animation: float 4s ease-in-out infinite;
+  transition: scale 0.25s ease;
+}
+
+.star {
+  display: inline-block;
+  transition: scale 0.25s ease;
+}
+
+.sparkle:hover,
+.star:hover {
+  scale: 1.2;
 }
 
 .sparkle-one {
@@ -717,6 +728,16 @@ button {
   object-position: top center;
   display: block;
   animation: imageFade 0.28s ease;
+}
+
+.project-image-contain .project-image-frame {
+  aspect-ratio: var(--project-image-aspect, 16 / 9);
+  background: #fffaf6;
+}
+
+.project-image-contain .project-image-frame img {
+  object-fit: contain;
+  object-position: center;
 }
 
 

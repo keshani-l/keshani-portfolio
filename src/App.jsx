@@ -180,7 +180,12 @@ function getImageNumber(fileName) {
    IMAGE SLIDESHOW
 ======================================== */
 
-function ProjectImageSequence({ images, alt }) {
+function ProjectImageSequence({
+  images,
+  alt,
+  imageFit = 'cover',
+  frameAspect = '16 / 9',
+}) {
   const [imageIndex, setImageIndex] = useState(0)
 
   const totalImages = images.length
@@ -207,7 +212,8 @@ function ProjectImageSequence({ images, alt }) {
   return (
     <button
       type="button"
-      className="project-image"
+      className={`project-image project-image-${imageFit}`}
+      style={imageFit === 'contain' ? { '--project-image-aspect': frameAspect } : undefined}
       onClick={showNextImage}
       onKeyDown={handleKeyDown}
       aria-label={`${alt}. Show next image`}
@@ -532,7 +538,7 @@ function App() {
           </p>
 
           <h2>
-            A little about me <span>✦</span>
+            A little about me <span className="star">✦</span>
           </h2>
 
         </div>
@@ -543,7 +549,7 @@ function App() {
 
           <div className="about-photo-area">
 
-            <div className="photo-decoration">
+            <div className="photo-decoration star">
               ✦
             </div>
 
@@ -706,7 +712,7 @@ function App() {
           </p>
 
           <h2>
-            My Projects <span>✦</span>
+            My Projects <span className="star">✦</span>
           </h2>
 
           <div className="project-category">
@@ -732,6 +738,8 @@ function App() {
               <ProjectImageSequence
                 images={finduImages}
                 alt="FindU Campus Lost and Found Management System"
+                imageFit="contain"
+                frameAspect="1280 / 579"
               />
 
             </div>
@@ -808,6 +816,8 @@ function App() {
               <ProjectImageSequence
                 images={sewlogixImages}
                 alt="SewLogix Smart Tailoring Management System"
+                imageFit="contain"
+                frameAspect="1280 / 605"
               />
 
             </div>
@@ -882,7 +892,7 @@ function App() {
             </p>
 
             <h2>
-              Group Projects <span>✦</span>
+              Group Projects <span className="star">✦</span>
             </h2>
 
             <div className="project-category">
@@ -1097,6 +1107,8 @@ function App() {
     <ProjectImageSequence
       images={assuraImages}
       alt="Assura Fixed Assets Management System"
+      imageFit="contain"
+      frameAspect="16 / 9"
     />
 
   </div>
@@ -1194,7 +1206,7 @@ function App() {
           </p>
 
           <h2>
-            Industry Exposure <span>✦</span>
+            Industry Exposure <span className="star">✦</span>
           </h2>
 
           <p className="industry-intro">
@@ -1344,7 +1356,7 @@ function App() {
           </p>
 
           <h2>
-            Certificates <span aria-hidden="true">✦</span>
+            Certificates <span className="star" aria-hidden="true">✦</span>
           </h2>
 
           <p className="certificates-intro">
