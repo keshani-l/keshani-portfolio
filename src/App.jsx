@@ -805,7 +805,7 @@ function App() {
 
           {/* 02 SEWLOGIX */}
 
-          <article className="project project-reverse">
+          <article className="project project-reverse sewlogix-project">
 
             <div className="project-image-wrapper">
 

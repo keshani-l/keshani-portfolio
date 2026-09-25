@@ -654,6 +654,10 @@ button {
   order: 1;
 }
 
+.sewlogix-project {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
 
 /* ========================================
    PROJECT IMAGE
