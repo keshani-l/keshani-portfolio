@@ -817,7 +817,7 @@ function App() {
                 images={sewlogixImages}
                 alt="SewLogix Smart Tailoring Management System"
                 imageFit="contain"
-                frameAspect="1280 / 605"
+                frameAspect="1280 / 579"
               />
 
             </div>
